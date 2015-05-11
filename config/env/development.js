@@ -18,7 +18,7 @@ module.exports = {
 		}
 	},
 	app: {
-		title: 'MEAN.JS - Development Environment'
+		title: 'New dev spotted | Lofty.com'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
