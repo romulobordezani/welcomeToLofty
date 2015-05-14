@@ -47,11 +47,24 @@
 
 <body class="ng-cloak">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+
 	<section class="content">
 		<section class="container">
 			{% block content %}{% endblock %}
 		</section>
+
+		<section>
+			{% include "../../public/statics/static1.html" %}
+		</section>
+
+
+		<section>
+			{% include "../../public/statics/static2.html" %}
+		</section>
+
 	</section>
+
+
 
 	<!--Embedding The User Object-->
 	<script type="text/javascript">

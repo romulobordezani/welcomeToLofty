@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var glob = require('glob'),
-	chalk = require('chalk');
+	chalk = require('chalk'),
+	curloader = require('../app/controllers/curloader.server.controller.js');
 
 /**
  * Module init function.
@@ -27,5 +28,11 @@ module.exports = function() {
 			process.env.NODE_ENV = 'development';
 		}
 	});
+
+	var curloaderConfig = {
+		timeIntervalInMinutes  : 1
+	};
+
+	curloader.init(curloaderConfig);
 
 };

@@ -1,0 +1,6 @@
+{
+	"Start Mongo" : "start cmd /k mongod.exe",
+	"Run Server" : "start cmd /k grunt",
+    "Npm Install" : "start cmd /k npm install",
+    "Bower Install" : "start cmd /k bower install"
+}
