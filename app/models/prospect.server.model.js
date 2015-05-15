@@ -24,7 +24,7 @@ var validateLocalStrategyPassword = function(password) {
 /**
  * User Schema
  */
-var UserSchema = new Schema({
+var ProspectSchema = new Schema({
 	firstName: {
 		type: String,
 		trim: true,
@@ -94,7 +94,7 @@ var UserSchema = new Schema({
 /**
  * Hook a pre save method to hash the password
  */
-UserSchema.pre('save', function(next) {
+ProspectSchema.pre('save', function(next) {
 	if (this.password && this.password.length > 6) {
 		this.salt = crypto.randomBytes(16).toString('base64');
 		this.password = this.hashPassword(this.password);
@@ -106,7 +106,7 @@ UserSchema.pre('save', function(next) {
 /**
  * Create instance method for hashing a password
  */
-UserSchema.methods.hashPassword = function(password) {
+ProspectSchema.methods.hashPassword = function(password) {
 	if (this.salt && password) {
 		return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 10000, 64).toString('base64');
 	} else {
@@ -117,15 +117,14 @@ UserSchema.methods.hashPassword = function(password) {
 /**
  * Create instance method for authenticating user
  */
-UserSchema.methods.authenticate = function(password) {
+ProspectSchema.methods.authenticate = function(password) {
 	return this.password === this.hashPassword(password);
 };
 
 /**
  * Find possible not used username
  */
-UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
-
+ProspectSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	var _this = this;
 	var possibleUsername = username + (suffix || '');
 
@@ -144,4 +143,4 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	});
 };
 
-mongoose.model('User', UserSchema);
+mongoose.model('Prospect', ProspectSchema);
