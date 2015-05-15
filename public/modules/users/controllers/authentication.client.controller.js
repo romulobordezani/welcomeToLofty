@@ -10,31 +10,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 			$location.path('/');
 		}
 
-
-		$scope.$watch('credentials', function(value){
-
-
-			$http.post('/prospect', $scope.credentials )
-
-				.success(function(response) {
-					$scope.credentials  = response;
-				})
-
-				.error(function(response) {
-					$scope.error = response.message;
-				}
-
-			);
-
-			console.log( new Date().getTime(), value);
-
-		}, true);
-
-
-
 		$scope.signup = function() {
-
-			console.log('post');
 
 			$http.post('/auth/signup', $scope.credentials ).success(function(response) {
 
