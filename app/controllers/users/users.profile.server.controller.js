@@ -13,6 +13,7 @@ var _ = require('lodash'),
  * Update user details
  */
 exports.update = function(req, res) {
+
 	// Init Variables
 	var user = req.user;
 	var message = null;

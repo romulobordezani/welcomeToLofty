@@ -101,6 +101,7 @@ UserSchema.pre('save', function(next) {
 	}
 
 	next();
+
 });
 
 /**
